@@ -25,7 +25,7 @@ public class RoomCreationServlet extends HttpServlet{
 			 int index = random.nextInt(CHARACTERS.length());
 			 token.append(CHARACTERS.charAt(index));
 		 }
-		 String code = token.toString();
+		 String roomCode = token.toString();
 		 
 		 String user_id = request.getParameter("user_id");
 		 String roomName = request.getParameter("roomName");
@@ -38,12 +38,12 @@ public class RoomCreationServlet extends HttpServlet{
 	     try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/BingeBaddies?user=root&password=Rayquaza10!");
-			ps = conn.prepareStatement("INSERT INTO Room (user_id, roomName, video_link, code, active_users) "
+			ps = conn.prepareStatement("INSERT INTO Room (user_id, roomName, video_link, roomCode, active_users) "
 					+ "VALUES (?, ?, ?, ?, ?, ?)");
 			ps.setString(1, user_id);
 			ps.setString(2, roomName);
 			ps.setString(3, video_link);
-			ps.setString(4, code);
+			ps.setString(4, roomCode);
 			ps.setString(5, active_users);
 			rs = ps.executeQuery();
 		} catch (ClassNotFoundException e) {
