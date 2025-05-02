@@ -13,7 +13,7 @@ public class Message implements Runnable{
 
 	private static final String JDBC_URL      = "jdbc:mysql://localhost/BingeBaddies?useSSL=false&serverTimezone=UTC";
 	private static final String JDBC_USER     = "root";
-	private static final String JDBC_PASSWORD = "";
+	private static final String JDBC_PASSWORD = "Rayquaza10!";
 
 	static {
 		try {
